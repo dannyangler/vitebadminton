@@ -7,6 +7,7 @@
         <ul class="nav-links" :class="{ 'open': menuOpen }">
           <li :class="{ active: isActive('/') }"><router-link to="/">首頁</router-link></li>
           <li :class="{ active: isActive('/courses') }"><router-link to="/courses">課程</router-link></li>
+          <li :class="{ active: isActive('/videos') }"><router-link to="/videos">看影片自學</router-link></li> <!-- 新增 -->
           <li :class="{ active: isActive('/about') }"><router-link to="/about">關於我們</router-link></li>
           <li :class="{ active: isActive('/contact') }"><router-link to="/contact">聯絡我們</router-link></li>
           <li><router-link to="/login" class="cta-btn">登入</router-link></li>
@@ -67,7 +68,7 @@ export default {
 </script>
 
 <style scoped>
-/* Reset */
+/* 原有樣式保持不變 */
 * {
   margin: 0;
   padding: 0;
@@ -78,16 +79,14 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Container */
 .container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Sticky Header */
 .header {
-  position: sticky; /* Changed from fixed to sticky for better context */
+  position: sticky;
   top: 0;
   background-color: #2c3e50;
   color: #fff;
@@ -96,13 +95,12 @@ body {
   z-index: 1000;
 }
 
-/* Navigation Container */
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px; /* Limits width for better readability */
-  margin: 0 auto; /* Centers the nav */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -110,11 +108,10 @@ body {
   font-weight: bold;
 }
 
-/* Navigation Links */
 .nav-links {
   list-style-type: none;
   display: flex;
-  gap: 25px; /* Slightly increased for breathing room */
+  gap: 25px;
 }
 
 .nav-links li {
@@ -133,13 +130,11 @@ body {
   background-color: #3498db;
 }
 
-/* Highlight Active Page */
 .nav-links .active a {
-  background-color: #ffcc00; /* Changed to background for stronger visual cue */
-  color: #2c3e50; /* Contrast against yellow */
+  background-color: #ffcc00;
+  color: #2c3e50;
 }
 
-/* Call-to-Action Button */
 .cta-btn {
   background-color: #e74c3c;
   padding: 10px 20px;
@@ -152,7 +147,6 @@ body {
   background-color: #c0392b;
 }
 
-/* Back to Top Button */
 .back-to-top {
   position: fixed;
   bottom: 30px;
@@ -173,7 +167,6 @@ body {
   color: black;
 }
 
-/* Footer */
 .footer {
   background-color: #2c3e50;
   color: #fff;
@@ -183,7 +176,6 @@ body {
   font-size: 14px;
 }
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
   .nav-container {
     flex-direction: column;
@@ -200,16 +192,16 @@ body {
     gap: 15px;
     width: 100%;
     text-align: center;
-    display: none; /* Hidden by default */
+    display: none;
   }
 
   .nav-links.open {
-    display: flex; /* Shown when toggled */
+    display: flex;
   }
 
   .nav-links a {
     padding: 10px;
-    display: block; /* Full-width clickable area */
+    display: block;
   }
 
   .cta-btn {

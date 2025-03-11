@@ -62,6 +62,7 @@ onMounted(() => {
           <a :href="video.url" target="_blank" class="video-cta">在 YouTube 上觀看</a>
         </div>
       </div>
+      <router-link to="/videos" class="more-videos-btn">查看更多影片</router-link>
     </section>
 
     <!-- Testimonials -->
@@ -222,6 +223,20 @@ onMounted(() => {
 }
 .video-cta:hover {
   background: #2980b9;
+}
+.more-videos-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ffcc00;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+.more-videos-btn:hover {
+  background: #e6b800;
 }
 
 /* Testimonials */
