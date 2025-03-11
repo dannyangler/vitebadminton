@@ -1,20 +1,8 @@
 <template>
     <div class="contact-page">
-      <h1>聯絡我們</h1>
-      <p>請聯繫我們，填寫以下表格或發送電子郵件。</p>
-  
-      <form>
-        <label for="name">名字:</label>
-        <input type="text" id="name" placeholder="您的名字">
-  
-        <label for="email">電子郵件:</label>
-        <input type="email" id="email" placeholder="您的電子郵件">
-  
-        <label for="message">訊息:</label>
-        <textarea id="message" placeholder="您的訊息"></textarea>
-  
-        <button type="submit">送出</button>
-      </form>
+      <h1>聯絡我們的方法</h1>
+      <p>如果您有任何問題或建議，請通過以下方式聯繫我們：</p>
+      <p>Email: <a href="mailto:linwenchin@gmail.com">linwenchin@gmail.com</a></p>
     </div>
   </template>
   
@@ -29,34 +17,23 @@
     padding: 20px;
   }
   
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin: 10px 0 5px;
-  }
-  
-  input,
-  textarea {
-    padding: 10px;
+  h1 {
+    font-size: 24px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
   }
   
-  button {
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  p {
+    font-size: 18px;
+    margin: 10px 0;
   }
   
-  button:hover {
-    background-color: #2980b9;
+  a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
   }
   </style>
   
