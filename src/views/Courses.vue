@@ -1,17 +1,21 @@
 <template>
-  <div class="container">
-    <h1 class="title">🏸 羽毛球課程總覽</h1>
-    
-    <section class="pricing">
-      <h2>📌 課程收費方式</h2>
-      <p>教練費用 = 鐘點費 + 場地費，學生人數去均攤 ( 鐘點費 + 場地費 )</p>
-      <h3>鐘點費</h3>
+  <div class="courses-container">
+    <!-- Title Section -->
+    <section class="section title-section">
+      <h2>🏸 羽毛球課程總覽</h2>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing">
+      <h3>📌 課程收費方式</h3>
+      <p>教練費用 = 鐘點費 + 場地費，學生人數去均攤 (鐘點費 + 場地費)</p>
+      <h4>鐘點費</h4>
       <ul>
         <li>1對1~2：每小時收費800元</li>
         <li>1對3~4：每小時收費900元</li>
         <li>1對4~6：每小時收費1000元</li>
       </ul>
-      <h3>場地費 - 奧創土城館羽球場</h3>
+      <h4>場地費 - 奧創土城館羽球場</h4>
       <ul>
         <li>週一至週五 9:00 ~ 18:00：每小時450元</li>
         <li>週一至週五 18:30 ~ 22:30：每小時800元</li>
@@ -19,14 +23,15 @@
         <li>週六至週日 12:00 ~ 22:00：每小時700元</li>
       </ul>
       <p>季租享8折優惠，年租享7折優惠</p>
-      <h3>費用範例</h3>
+      <h4>費用範例</h4>
       <p>星期六早上8~10、1對2、2小時</p>
       <p>總費用 = 800(鐘點費)×2 + 500(場地費)×2 = 2600元</p>
       <p>每人均分的費用 = 2600 / 2 = 1300元</p>
     </section>
-    
-    <section class="course-section">
-      <h2>初階課程</h2>
+
+    <!-- Beginner Course -->
+    <section class="section course-section">
+      <h3>初階課程</h3>
       <p>適合初學者，涵蓋基本握拍、發力、步法與基礎技術。</p>
       <ul>
         <li>握拍、基本發力原理、平球</li>
@@ -42,11 +47,12 @@
         <li>正反手挑球</li>
         <li>單、雙打規則與零打準備</li>
       </ul>
-      <img src="/badminton-beginner.jpg" alt="羽毛球初階課程" class="course-image">
+      <img src="/badminton-beginner.jpg" alt="羽毛球初階課程" class="course-image" />
     </section>
-    
-    <section class="course-section">
-      <h2>中階課程</h2>
+
+    <!-- Intermediate Course -->
+    <section class="section course-section">
+      <h3>中階課程</h3>
       <p>適合有基礎的球友，強調擊球準確性、步法流暢度與戰術運用。</p>
       <ul>
         <li>正手/反手進階擊球技巧</li>
@@ -56,11 +62,12 @@
         <li>雙打戰術與站位</li>
         <li>單、雙打戰術分析</li>
       </ul>
-      <img src="/badminton-intermediate.jpg" alt="羽毛球中階課程" class="course-image">
+      <img src="/badminton-intermediate.jpg" alt="羽毛球中階課程" class="course-image" />
     </section>
-    
-    <section class="course-section">
-      <h2>高階課程</h2>
+
+    <!-- Advanced Course -->
+    <section class="section course-section">
+      <h3>高階課程</h3>
       <p>專為進階選手設計，涵蓋攻防策略、時間差與心理戰技巧。</p>
       <ul>
         <li>快速高遠球與停拍技巧</li>
@@ -69,12 +76,12 @@
         <li>心理戰與對手能力測試</li>
         <li>步法強化：進攻/防守啟動步</li>
       </ul>
-      <img src="/badminton-advanced.jpg" alt="羽毛球高階課程" class="course-image">
+      <img src="/badminton-advanced.jpg" alt="羽毛球高階課程" class="course-image" />
     </section>
 
-    <!-- Contact Us -->
-    <section class="contact">
-      <h2>📩 聯絡我們</h2>
+    <!-- Contact Section -->
+    <section class="section contact">
+      <h3>📩 聯絡我們</h3>
       <p>有任何問題或羽球教學邀約，歡迎聯繫我們！</p>
       <a href="https://lin.ee/dcqzudR" class="cta-btn">加入我們的 Line 官方帳號</a>
     </section>
@@ -82,44 +89,92 @@
 </template>
 
 <style scoped>
-.container {
+.courses-container {
   max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 80px 20px 20px; /* Top padding for sticky header */
 }
-.title {
-  text-align: center;
+
+/* General Section Styling */
+.section {
+  padding: 30px 20px;
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Subtle Divider */
+.section:not(:last-child)::after {
+  content: "";
+  display: block;
+  width: 50%;
+  margin: 20px auto 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Headings */
+.title-section h2 {
+  font-size: 32px;
   color: #005bbb;
+  text-align: center;
 }
-.course-section {
-  background: #f4f4f4;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
+
+h3 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 15px;
 }
-.course-section h2 {
+
+h4 {
+  font-size: 20px;
   color: #333;
+  margin: 15px 0 10px;
 }
-.course-section ul {
+
+/* Text and Lists */
+p {
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0;
+}
+
+ul {
   list-style: none;
   padding: 0;
 }
-.course-section li {
+
+li {
+  font-size: 16px;
   padding: 5px 0;
+  position: relative;
+  padding-left: 20px;
 }
+
+li:before {
+  content: "•";
+  color: #3498db;
+  position: absolute;
+  left: 0;
+}
+
+/* Images */
 .course-image {
   width: 100%;
-  border-radius: 10px;
-  margin-top: 10px;
+  max-width: 600px;
+  border-radius: 8px;
+  margin-top: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+/* Contact Section */
 .contact {
   text-align: center;
-  margin-top: 20px;
-  padding: 20px;
   background: #e0f7fa;
-  border-radius: 10px;
 }
+
 .cta-btn {
   display: inline-block;
   padding: 10px 20px;
@@ -127,9 +182,33 @@
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
+
 .cta-btn:hover {
   background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+  .title-section h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  p, li {
+    font-size: 14px;
+  }
+  .course-image {
+    max-width: 100%;
+  }
 }
 </style>
