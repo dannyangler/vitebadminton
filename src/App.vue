@@ -21,5 +21,60 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'Header'
+};
+</script>
 
+<style scoped>
+/* Your CSS styles go here */
+.header {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  font-size: 18px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #3498db;
+}
+
+.cta-btn {
+  background-color: #e74c3c;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #c0392b;
+}
+</style>
 
