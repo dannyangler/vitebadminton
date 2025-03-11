@@ -3,7 +3,7 @@
     <header class="header">
       <nav>
         <h1 class="logo">🏸羽毛球自學之路</h1>
-        <ul class="nav-links">
+        <ul class="nav-links" :class="{ 'open': menuOpen }">
           <li><router-link to="/">首頁</router-link></li>
           <li><router-link to="/courses">課程</router-link></li>
           <li><router-link to="/about">關於我們</router-link></li>
@@ -139,6 +139,10 @@ body {
     display: none; /* Initially hide the menu */
   }
 
+  .nav-links.open {
+    display: flex; /* Show the menu when toggled */
+  }
+
   .nav-links li {
     font-size: 18px;
   }
@@ -151,11 +155,6 @@ body {
     margin-top: 10px;
     width: 100%;
     text-align: center;
-  }
-
-  /* Show the menu when it's open */
-  .nav-links.open {
-    display: flex;
   }
 
   /* Hamburger menu button */
