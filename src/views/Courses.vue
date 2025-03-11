@@ -2,32 +2,28 @@
   <div class="container">
     <h1 class="title">🏸 羽毛球課程總覽</h1>
     
-    <section class="fee-section">
-      <h2>課程收費方式</h2>
-      <p>教練費用 = 鐘點費 + 場地費，學生人數均攤（鐘點費 + 場地費）</p>
-      
+    <section class="pricing">
+      <h2>📌 課程收費方式</h2>
+      <p>教練費用 = 鐘點費 + 場地費，學生人數去均攤 ( 鐘點費 + 場地費 )</p>
       <h3>鐘點費</h3>
       <ul>
-        <li>1對1~2：每小時收費 800 元</li>
-        <li>1對3~4：每小時收費 900 元</li>
-        <li>1對4~6：每小時收費 1000 元</li>
+        <li>1對1~2：每小時收費800元</li>
+        <li>1對3~4：每小時收費900元</li>
+        <li>1對4~6：每小時收費1000元</li>
       </ul>
-      
       <h3>場地費 - 奧創土城館羽球場</h3>
       <ul>
-        <li>週一至週五：9:00 ~ 18:00 每小時 450 元，18:30 ~ 22:30 每小時 800 元</li>
-        <li>週六至週日：8:00 ~ 12:00 每小時 500 元，12:00 ~ 22:00 每小時 700 元</li>
-        <li>季租享 8 折優惠，年租享 7 折優惠</li>
+        <li>週一至週五 9:00 ~ 18:00：每小時450元</li>
+        <li>週一至週五 18:30 ~ 22:30：每小時800元</li>
+        <li>週六至週日 8:00 ~ 12:00：每小時500元</li>
+        <li>週六至週日 12:00 ~ 22:00：每小時700元</li>
       </ul>
-      
+      <p>季租享8折優惠，年租享7折優惠</p>
       <h3>費用範例</h3>
-      <p>例如：星期六早上 8:00 ~ 10:00，1 對 2，2 小時</p>
-      <p>總費用 = 800(鐘點費) × 2 + 500(場地費) × 2 = 2600 元</p>
-      <p>每人均分的費用 = 2600 / 2 = 1300 元</p>
+      <p>星期六早上8~10、1對2、2小時</p>
+      <p>總費用 = 800(鐘點費)×2 + 500(場地費)×2 = 2600元</p>
+      <p>每人均分的費用 = 2600 / 2 = 1300元</p>
     </section>
-    
-    <li>這是基本課表給各位參考，如果你沒有大量的練習時間，大部份的短期課程，只是能給你大約的了解一下動作長什麼樣子，
-      如果沒有足夠的練習時間，很容易的就變成只是去看教練表演而已</li>
     
     <section class="course-section">
       <h2>初階課程</h2>
@@ -75,6 +71,13 @@
       </ul>
       <img src="/badminton-advanced.jpg" alt="羽毛球高階課程" class="course-image">
     </section>
+
+    <!-- Contact Us -->
+    <section class="contact">
+      <h2>📩 聯絡我們</h2>
+      <p>有任何問題或羽球教學邀約，歡迎聯繫我們！</p>
+      <a href="https://lin.ee/dcqzudR" class="cta-btn">加入我們的 Line 官方帳號</a>
+    </section>
   </div>
 </template>
 
@@ -88,12 +91,6 @@
 .title {
   text-align: center;
   color: #005bbb;
-}
-.fee-section {
-  background: #f9f9f9;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
 }
 .course-section {
   background: #f4f4f4;
@@ -115,5 +112,24 @@
   width: 100%;
   border-radius: 10px;
   margin-top: 10px;
+}
+.contact {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background: #e0f7fa;
+  border-radius: 10px;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.cta-btn:hover {
+  background-color: #0056b3;
 }
 </style>
