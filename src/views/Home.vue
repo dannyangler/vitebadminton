@@ -1,23 +1,10 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
-// 精選影片資料 (Updated URLs to avoid potential embedding issues)
 const videos = ref([
-  {
-    id: 1,
-    title: "羽毛球基礎技巧",
-    url: "https://www.youtube.com/embed/DCPq-zR3E9M?start=308&enablejsapi=1",
-  },
-  {
-    id: 2,
-    title: "進階攻擊技巧",
-    url: "https://www.youtube.com/embed/4HHeOHgdc_8?enablejsapi=1",
-  },
-  {
-    id: 3,
-    title: "比賽戰術訓練",
-    url: "https://www.youtube.com/embed/MwAtlgRK1D4?enablejsapi=1",
-  },
+  { id: 1, title: "羽毛球基礎技巧", url: "https://www.youtube.com/embed/DCPq-zR3E9M?start=308&enablejsapi=1" },
+  { id: 2, title: "進階攻擊技巧", url: "https://www.youtube.com/embed/4HHeOHgdc_8?enablejsapi=1" },
+  { id: 3, title: "比賽戰術訓練", url: "https://www.youtube.com/embed/MwAtlgRK1D4?enablejsapi=1" },
 ]);
 
 const featuredCourses = ref([
@@ -25,6 +12,14 @@ const featuredCourses = ref([
   { id: 2, title: "💥 進階攻擊與扣殺", description: "學習如何製造進攻機會，提升進攻威脅性。" },
   { id: 3, title: "🎯 戰術佈局與比賽應用", description: "分析比賽戰術，提升臨場應變能力。" },
 ]);
+
+onMounted(() => {
+  document.title = '羽毛球自學之路 - 系統化學習';
+  const meta = document.createElement('meta');
+  meta.name = 'description';
+  meta.content = '系統化學習羽毛球，提升技術，專為社會組球員設計的課程與影片。';
+  document.head.appendChild(meta);
+});
 </script>
 
 <template>
@@ -43,6 +38,7 @@ const featuredCourses = ref([
         <div class="course-card" v-for="course in featuredCourses" :key="course.id">
           <h3>{{ course.title }}</h3>
           <p>{{ course.description }}</p>
+          <router-link to="/courses" class="course-cta">了解更多</router-link>
         </div>
       </div>
     </section>
@@ -63,6 +59,7 @@ const featuredCourses = ref([
               loading="lazy"
             ></iframe>
           </div>
+          <a :href="video.url" target="_blank" class="video-cta">在 YouTube 上觀看</a>
         </div>
       </div>
     </section>
@@ -77,19 +74,24 @@ const featuredCourses = ref([
 </template>
 
 <style scoped>
-/* Container */
 .home-container {
-  max-width: 1200px; /* Limits width for readability */
-  margin: 0 auto; /* Centers content */
-  padding: 80px 20px 20px; /* Top padding for sticky header */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px 20px;
 }
 
 /* General Section Styling */
 .section {
-  padding: 40px 20px; /* Internal whitespace */
-  margin-bottom: 40px; /* External whitespace between sections */
-  border-radius: 8px; /* Subtle rounding */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Depth */
+  padding: 40px 20px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
 /* Subtle Divider */
@@ -98,7 +100,7 @@ const featuredCourses = ref([
   display: block;
   width: 50%;
   margin: 20px auto 0;
-  border-bottom: 1px solid #ddd; /* Light divider */
+  border-bottom: 1px dashed #3498db;
 }
 
 /* Hero Section */
@@ -152,10 +154,27 @@ const featuredCourses = ref([
   width: 300px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.course-card:hover {
+  transform: translateY(-5px);
 }
 .course-card h3 {
   color: #005bbb;
   margin-bottom: 10px;
+}
+.course-cta {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.course-cta:hover {
+  background: #2980b9;
 }
 
 /* Video Section */
@@ -179,8 +198,8 @@ const featuredCourses = ref([
 }
 .video-wrapper {
   position: relative;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-  background: #000; /* Fallback for loading */
+  padding-top: 56.25%;
+  background: #000;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -190,6 +209,19 @@ const featuredCourses = ref([
   left: 0;
   width: 100%;
   height: 100%;
+}
+.video-cta {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.video-cta:hover {
+  background: #2980b9;
 }
 
 /* Testimonials */

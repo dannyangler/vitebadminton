@@ -47,7 +47,8 @@
         <li>正反手挑球</li>
         <li>單、雙打規則與零打準備</li>
       </ul>
-      <img src="/badminton-beginner.jpg" alt="羽毛球初階課程" class="course-image" />
+      <img src="/badminton-beginner.jpg" alt="初階羽毛球課程訓練" class="course-image" />
+      <router-link to="/contact" class="course-cta">報名初階課程</router-link>
     </section>
 
     <!-- Intermediate Course -->
@@ -62,7 +63,8 @@
         <li>雙打戰術與站位</li>
         <li>單、雙打戰術分析</li>
       </ul>
-      <img src="/badminton-intermediate.jpg" alt="羽毛球中階課程" class="course-image" />
+      <img src="/badminton-intermediate.jpg" alt="中階羽毛球戰術訓練" class="course-image" />
+      <router-link to="/contact" class="course-cta">報名中階課程</router-link>
     </section>
 
     <!-- Advanced Course -->
@@ -76,7 +78,8 @@
         <li>心理戰與對手能力測試</li>
         <li>步法強化：進攻/防守啟動步</li>
       </ul>
-      <img src="/badminton-advanced.jpg" alt="羽毛球高階課程" class="course-image" />
+      <img src="/badminton-advanced.jpg" alt="高階羽毛球進攻訓練" class="course-image" />
+      <router-link to="/contact" class="course-cta">報名高階課程</router-link>
     </section>
 
     <!-- Contact Section -->
@@ -88,11 +91,28 @@
   </div>
 </template>
 
+<script>
+import { onMounted } from 'vue';
+
+export default {
+  name: "Courses",
+  setup() {
+    onMounted(() => {
+      document.title = '課程總覽 - 羽毛球自學之路';
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = '探索羽毛球初階、中階、高階課程與收費詳情，適合社會組球員提升技術。';
+      document.head.appendChild(meta);
+    });
+  },
+};
+</script>
+
 <style scoped>
 .courses-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 80px 20px 20px; /* Top padding for sticky header */
+  padding: 80px 20px 20px;
 }
 
 /* General Section Styling */
@@ -102,6 +122,12 @@
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
 /* Subtle Divider */
@@ -110,7 +136,7 @@
   display: block;
   width: 50%;
   margin: 20px auto 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px dashed #3498db;
 }
 
 /* Headings */
@@ -167,12 +193,25 @@ li:before {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  transition: transform 0.3s ease;
+}
+.course-image:hover {
+  transform: scale(1.05);
 }
 
-/* Contact Section */
-.contact {
-  text-align: center;
-  background: #e0f7fa;
+/* CTAs */
+.course-cta {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.course-cta:hover {
+  background: #2980b9;
 }
 
 .cta-btn {
@@ -184,9 +223,14 @@ li:before {
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-
 .cta-btn:hover {
   background-color: #0056b3;
+}
+
+/* Contact Section */
+.contact {
+  text-align: center;
+  background: #e0f7fa;
 }
 
 /* Responsive Design */

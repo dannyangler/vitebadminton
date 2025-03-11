@@ -20,7 +20,7 @@
           幫助社會組球員掌握正確的技術，突破學習停滯期！
         </p>
       </div>
-      <img src="/badminton-training.jpg" alt="羽毛球訓練" class="story-image" />
+      <img src="/badminton-training.jpg" alt="社會組球員羽毛球訓練" class="story-image" />
     </section>
 
     <!-- Our Mission -->
@@ -53,21 +53,43 @@
   </div>
 </template>
 
+<script>
+import { onMounted } from 'vue';
+
+export default {
+  name: "About",
+  setup() {
+    onMounted(() => {
+      document.title = '關於我們 - 羽毛球自學之路';
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = '了解羽毛球自學之路的使命與故事，幫助社會組球員突破技術瓶頸。';
+      document.head.appendChild(meta);
+    });
+  },
+};
+</script>
+
 <style scoped>
-/* Container */
 .about-container {
-  max-width: 1100px; /* Matches original our-story max-width */
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 80px 20px 20px; /* Top padding for sticky header */
+  padding: 80px 20px 20px;
 }
 
 /* General Section Styling */
 .section {
   padding: 40px 20px;
   margin-bottom: 40px;
-  background: #fff; /* Default white background */
+  background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
 /* Subtle Divider */
@@ -76,7 +98,7 @@
   display: block;
   width: 50%;
   margin: 20px auto 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px dashed #3498db;
 }
 
 /* Hero Section */
@@ -106,7 +128,7 @@
 }
 .our-story h3 {
   font-size: 28px;
-  color: #2c3e50; /* Matches site theme */
+  color: #2c3e50;
   margin-bottom: 15px;
 }
 .our-story p {
@@ -118,6 +140,10 @@
   width: 35%;
   max-width: 400px;
   border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.story-image:hover {
+  transform: scale(1.05);
 }
 
 /* Our Mission */
