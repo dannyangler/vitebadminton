@@ -11,3 +11,4 @@ router.afterEach((to) => {
 });
 
 app.mount('#app');
+
