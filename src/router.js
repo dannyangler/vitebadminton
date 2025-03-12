@@ -6,11 +6,11 @@ import Contact from './views/Contact.vue';
 import VideoSelfStudy from './views/VideoSelfStudy.vue'; // 新增看影片自學頁面
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/about', component: About },
-  { path: '/courses', component: Courses },
-  { path: '/contact', component: Contact },
-  { path: '/videos', component: VideoSelfStudy }, // 新增看影片自學路由
+  { path: '/', component: Home, meta: { title: '羽毛球自學之路 - 首頁' } },
+  { path: '/about', component: About, meta: { title: '羽毛球自學之路 - 關於我們' } },
+  { path: '/courses', component: Courses, meta: { title: '羽毛球自學之路 - 課程總覽' } },
+  { path: '/contact', component: Contact, meta: { title: '羽毛球自學之路 - 聯絡我們' } },
+  { path: '/videos', component: VideoSelfStudy, meta: { title: '羽毛球自學之路 - 看影片自學' } },
 ];
 
 const router = createRouter({
