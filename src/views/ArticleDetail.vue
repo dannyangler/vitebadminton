@@ -54,11 +54,16 @@ onMounted(fetchArticle);
     <div v-else-if="article" class="article-detail">
       <h1 class="text-3xl font-bold text-gray-800">{{ article.title }}</h1>
       <p class="text-gray-500">{{ new Date(article.created_at).toLocaleDateString() }}</p>
-      <img v-if="article.cover_image_url" :src="article.cover_image_url" alt="封面圖片" class="mt-4 rounded-lg w-full">
       
-      <!-- ✅ Render Markdown content as HTML -->
-      <div v-html="formattedContent" class="article-content mt-4"></div>
-
+      <div class="article-content-wrapper">
+        <div class="image-container">
+          <img v-if="article.cover_image_url" :src="article.cover_image_url" alt="封面圖片" class="article-image">
+        </div>
+        <div class="article-text">
+          <div v-html="formattedContent" class="article-content"></div>
+        </div>
+      </div>
+      
       <router-link to="/articles" class="text-green-500 hover:underline block mt-6">
         ⬅ 返回文章列表
       </router-link>
@@ -69,76 +74,55 @@ onMounted(fetchArticle);
 </template>
 
 <style scoped>
-.article-content {
-  line-height: 1.8;
-  font-size: 1.1rem;
-  color: #333;
+.article-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* ✅ Improve styling for Markdown headings */
-.article-content h2 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-top: 1.5rem;
-  color: #1d4ed8;
+.article-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.article-content h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  color: #2563eb;
+/* ✅ Image placement on PC */
+@media (min-width: 1024px) {
+  .article-content-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .image-container {
+    flex: 0 0 40%; /* ✅ Image takes 40% width on PC */
+    max-width: 350px;
+    margin-right: 20px;
+  }
+  .article-text {
+    flex: 1;
+  }
 }
 
-/* ✅ Style for paragraphs */
-.article-content p {
-  margin-bottom: 1rem;
+.image-container {
+  width: 100%;
+  max-width: 600px; /* ✅ Restrict max width on larger screens */
+  margin-bottom: 20px;
 }
 
-/* ✅ Style for links */
-.article-content a {
-  color: #059669;
-  text-decoration: underline;
-}
-
-.article-content a:hover {
-  color: #047857;
-}
-
-/* ✅ Style for images */
-.article-content img {
-  max-width: 100%;
+.article-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px; /* ✅ Limit height on larger screens */
+  object-fit: contain; /* ✅ Maintain aspect ratio without cropping */
   border-radius: 8px;
-  margin-top: 1rem;
 }
 
-/* ✅ Style for lists */
-.article-content ul {
-  padding-left: 20px;
-  list-style: disc;
-}
-
-.article-content ol {
-  padding-left: 20px;
-  list-style: decimal;
-}
-
-.article-content li {
-  margin-bottom: 0.5rem;
-}
-
-/* ✅ Style for code blocks */
-.article-content pre {
-  background-color: #f4f4f4;
-  padding: 1rem;
-  border-radius: 5px;
-  overflow-x: auto;
-}
-
-.article-content code {
-  background-color: #eef;
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
-  font-family: "Courier New", monospace;
+/* ✅ On mobile, the image is full width on top */
+@media (max-width: 1024px) {
+  .image-container {
+    max-width: 100%;
+  }
+  .article-image {
+    max-height: none;
+  }
 }
 </style>

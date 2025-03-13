@@ -1,61 +1,24 @@
 <template>
-  <div id="app">
-    <!-- Navigation -->
-    <nav>
-      <ul>
-        <li><router-link to="/">🏠 首頁</router-link></li>
-        <li><router-link to="/about">👨‍🏫 關於我們</router-link></li>
-        <li><router-link to="/courses">📚 課程總覽</router-link></li>
-        <li><router-link to="/videos">📺 自學影片</router-link></li>
-        <li><router-link to="/articles">📖 技術文章</router-link></li> <!-- ✅ Updated -->
-      </ul>
-    </nav>
+  <div id="app" class="min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <Navbar />
 
-    <!-- Router View -->
-    <router-view />
+    <!-- Main Content -->
+    <main class="flex-1 mt-16 p-6">
+      <router-view />
+    </main>
 
     <!-- Footer -->
-    <footer>
-      <p>© 2024 羽毛球自學之路 | <router-link to="/articles">技術文章</router-link></p>
+    <footer class="bg-gray-800 text-white text-center p-4">
+      <p>© 2024 羽毛球自學之路 | <router-link to="/articles" class="hover:underline">技術文章</router-link></p>
     </footer>
   </div>
 </template>
 
+<script setup>
+import Navbar from "./components/Navbar.vue";
+</script>
+
 <style scoped>
-#app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-nav {
-  background: #007bff;
-  padding: 10px;
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  background: #f8f8f8;
-  text-align: center;
-  padding: 10px;
-  margin-top: auto;
-}
+/* Remove unused styles since Tailwind CSS is handling most styling */
 </style>
