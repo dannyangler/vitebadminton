@@ -24,6 +24,10 @@ onMounted(() => {
 const navigateTo = (path) => {
   router.push(path);
 };
+
+function newFunction() {
+  return "video-iframe";
+}
 </script>
 
 <template>
